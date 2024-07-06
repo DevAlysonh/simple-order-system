@@ -25,4 +25,9 @@ class Client extends Model
 		'name',
 		'gender'
 	];
+
+	public function orders()
+	{
+		return $this->hasMany(Order::class);
+	}
 }

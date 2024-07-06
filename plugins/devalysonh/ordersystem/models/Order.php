@@ -20,4 +20,20 @@ class Order extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+	protected $fillable = [
+		'client_id',
+		'status',
+		'paid_at'
+	];
+
+	public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+	public function client()
+	{
+		return $this->belongsTo(Client::class, 'client_id', 'id');
+	}
 }

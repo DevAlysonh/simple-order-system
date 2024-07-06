@@ -18,7 +18,10 @@ return new class extends Migration
     {
         Schema::create('devalysonh_ordersystem_orders', function(Blueprint $table) {
             $table->id();
-			$table->foreignId('client_id')->constrained()->cascadeOnDelete();
+			$table->foreign('client_id')
+				->references('id')
+				->on('devalysonh_ordersystem_clients')
+				->onDelete('cascade');
 			$table->enum('status', [
 				'paid',
 				'unpaid',

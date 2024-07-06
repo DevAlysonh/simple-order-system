@@ -6,3 +6,12 @@ columns:
     id:
         label: ID
         searchable: true
+    client_id:
+        label: ClientID
+        searchable: true
+    paid_at:
+        label: PaidAt
+        searchable: true
+    status:
+        label: Status
+        searchable: true

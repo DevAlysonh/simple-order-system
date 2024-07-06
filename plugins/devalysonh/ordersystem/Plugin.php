@@ -65,6 +65,10 @@ class Plugin extends PluginBase
 				'tab' => 'Site',
 				'label' => 'Product'
 			],
+			'devalysonh.ordersystem.order' => [
+				'tab' => 'Site',
+				'label' => 'Order'
+			],
         ];
     }
 
@@ -86,6 +90,13 @@ class Plugin extends PluginBase
                 'url' => Backend::url('devalysonh/ordersystem/product'),
                 'icon' => 'icon-leaf',
                 'permissions' => ['devalysonh.ordersystem.product'],
+                'order' => 500,
+            ],
+            'order' => [
+                'label' => 'Order',
+                'url' => Backend::url('devalysonh/ordersystem/order'),
+                'icon' => 'icon-leaf',
+                'permissions' => ['devalysonh.ordersystem.order'],
                 'order' => 500,
             ],
         ];

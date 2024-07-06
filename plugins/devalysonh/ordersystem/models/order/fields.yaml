@@ -6,3 +6,9 @@ fields:
     id:
         label: ID
         disabled: true
+    client_id:
+        label: ClientId
+    paid_at:
+        label: PaidAt
+    status:
+        label: Status

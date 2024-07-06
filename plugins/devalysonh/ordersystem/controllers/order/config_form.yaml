@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Order
+
+# Model Form Field configuration
+form: $/devalysonh/ordersystem/models/order/fields.yaml
+
+# Model Class name
+modelClass: DevAlysonh\OrderSystem\Models\Order
+
+# Default redirect location
+defaultRedirect: devalysonh/ordersystem/order
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: devalysonh/ordersystem/order/update/:id
+    redirectClose: devalysonh/ordersystem/order
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: devalysonh/ordersystem/order
+    redirectClose: devalysonh/ordersystem/order
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

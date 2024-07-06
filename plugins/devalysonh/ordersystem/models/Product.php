@@ -30,4 +30,9 @@ class Product extends Model
     {
         return number_format($value / 100, 2, ',', '.');
     }
+
+	public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }
