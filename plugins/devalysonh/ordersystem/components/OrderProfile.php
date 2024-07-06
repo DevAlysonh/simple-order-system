@@ -67,7 +67,7 @@ class OrderProfile extends ComponentBase
 		$product = Product::find(post('product_id'));
 		$order = Order::find(post('order_id'));
 
-		if (!$product || ! $order) {
+		if (!$product || !$order) {
 			Flash::error('O pedido ou o item são inválidos.');
 			return redirect()->back();
 		}
