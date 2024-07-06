@@ -33,18 +33,18 @@
                         id="btn-profile-{{ product.id }}"
                         class="btn btn-sm ms-1 btn-success text-white"
                         data-toggle="modal"
-                        data-target="#editClientModal-{{ product.id }}"
+                        data-target="#editProductModal-{{ product.id }}"
                     >
                         <i class="bi bi-eye"></i>
                     </button>
 				</div>
 			</div>
-			{# {% partial 'site/modals/edit-client-modal' client=client %} #}
+			{% partial 'site/modals/edit-product-modal' product=product %}
 		{% endfor %}
 	</div>
 	<div class="container d-flex justify-content-end">
 		<nav>
-			{{ pager(__SELF__.clients) }}
+			{{ pager(__SELF__.products) }}
 		</nav>
 	</div>
 </div>

@@ -23,7 +23,7 @@ class Products extends ComponentBase
 
 	public function onRun()
     {   
-        $this->page['name'] = 'Clients';
+        $this->page['name'] = 'products';
         $this->products = Product::paginate(5);
     }
 
@@ -53,6 +53,24 @@ class Products extends ComponentBase
 
 		$product->delete();
 		Flash::success('O produto foi deletado');
+		return redirect()->back();
+	}
+
+	public function onUpdateProduct()
+	{
+		$productId = post('product_id');
+		$product = Product::find($productId);
+		
+		if (!$product) {
+			Flash::error('O produto que você tentou editar, não existe.');
+			return redirect()->back();
+		}
+
+		$product->name = post('name');
+		$product->price = $this->priceStringToIntTransform(post('price'));
+		$product->save();
+
+		Flash::success('Os dados do produto foram atualizados!');
 		return redirect()->back();
 	}
 
