@@ -48,6 +48,7 @@ class Plugin extends PluginBase
             'DevAlysonh\OrderSystem\Components\Clients' => 'clients',
             'DevAlysonh\OrderSystem\Components\Products' => 'products',
             'DevAlysonh\OrderSystem\Components\Orders' => 'orders',
+            'DevAlysonh\OrderSystem\Components\OrderProfile' => 'orderProfile',
         ];
     }
 
