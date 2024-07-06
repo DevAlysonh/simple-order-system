@@ -15,7 +15,3 @@
   - Fix other tables
   - create_new_orders_table.php
   - create_new_products_table.php
-
-1.0.5:
-  - Drop unused tables
-  - drop_old_tables.php

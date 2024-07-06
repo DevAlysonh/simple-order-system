@@ -19,7 +19,7 @@ return new class extends Migration
         Schema::create('orders', function(Blueprint $table) {
             $table->id();
 			$table->foreignId('client_id')->constrained()->cascadeOnDelete();
-			$table->integer('status')->default(3);
+			$table->string('status')->default('pendente');
 			$table->date('paid_at')->nullable()->default(null);
             $table->timestamps();
         });

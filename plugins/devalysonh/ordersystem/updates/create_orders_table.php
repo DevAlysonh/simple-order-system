@@ -18,15 +18,8 @@ return new class extends Migration
     {
         Schema::create('devalysonh_ordersystem_orders', function(Blueprint $table) {
             $table->id();
-			$table->foreign('client_id')
-				->references('id')
-				->on('devalysonh_ordersystem_clients')
-				->onDelete('cascade');
-			$table->enum('status', [
-				'paid',
-				'unpaid',
-				'pending'
-			])->default('peding');
+			$table->foreignId('client_id')->constrained()->cascadeOnDelete();
+			$table->string('status')->default('pendente');
 			$table->date('paid_at')->nullable();
             $table->timestamps();
         });
@@ -38,8 +31,8 @@ return new class extends Migration
 			$table->unsignedBigInteger('product_id');
 			$table->timestamps();
 		
-			$table->foreign('order_id')->references('id')->on('devalysonh_ordersystem_orders')->onDelete('cascade');
-			$table->foreign('product_id')->references('id')->on('devalysonh_ordersystem_products')->onDelete('cascade');
+			$table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+			$table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 		});
     }
 

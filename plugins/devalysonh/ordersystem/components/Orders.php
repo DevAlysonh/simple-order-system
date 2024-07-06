@@ -1,6 +1,9 @@
 <?php namespace DevAlysonh\OrderSystem\Components;
 
 use Cms\Classes\ComponentBase;
+use DevAlysonh\OrderSystem\Models\Client;
+use DevAlysonh\OrderSystem\Models\Order;
+use Flash;
 
 /**
  * Orders Component
@@ -9,6 +12,9 @@ use Cms\Classes\ComponentBase;
  */
 class Orders extends ComponentBase
 {
+	public $orders;
+	public $clients;
+
     public function componentDetails()
     {
         return [
@@ -24,4 +30,32 @@ class Orders extends ComponentBase
     {
         return [];
     }
+
+	public function onSaveOrder()
+	{
+		$data = post();
+
+		Order::create($data);
+		Flash::success('Pedido gerado com sucesso, acesse o pedido para adicionar itens.');
+		return redirect('/orders');
+	}
+
+	public function onDeleteOrder()
+	{
+		$orderId = post('id');
+        $order = Order::find($orderId);
+
+        if ($order) {
+            $order->delete();
+			Flash::success('Pedido excluido');
+			return redirect()->back();
+        }
+	}
+
+	public function onRun()
+	{
+		$this->clients = Client::all();
+		$this->page['name'] = 'Products';
+		$this->orders = Order::paginate(5);
+	}
 }

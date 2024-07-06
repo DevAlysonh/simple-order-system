@@ -1,11 +1,11 @@
-<div class="modal fade" id="createProductModal" tabindex="-1" role="dialog" aria-labelledby="createProductModalLabel" aria-hidden="true">
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createProductModalLabel">Cadastrar Produto</h5>
+                <h5 class="modal-title" id="addProductModalLabel">Adicionar Produto ao Pedido</h5>
             </div>
             <div class="modal-body p-3">
-                {% partial 'forms/clients/create-product-form' %}
+                {% partial 'forms/clients/add-product-form' products=products order=order %}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

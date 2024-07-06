@@ -1,0 +1,11 @@
+<form data-request="onSaveOrder">
+	<label for="inputClient" class="form-label">Cliente</label>
+	<select id="inputClient" name="client_id" class="form-select">
+		<option selected value="">Selecione um Cliente:</option>
+		{% for client in clients %}
+			<option value="{{client.id}}">{{ client.name }}</option>
+		{% endfor %}
+	</select>
+
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>

@@ -1,0 +1,12 @@
+##
+title = "Orders Profile"
+url = "/orders/:id"
+layout = "default"
+
+[orderProfile]
+orderId = "{{ :id }}"
+==
+
+<div class="conteiner" style="min-height:  50vh;">
+	{% component 'orderProfile' %}
+</div>

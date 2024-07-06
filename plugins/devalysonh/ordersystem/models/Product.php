@@ -27,11 +27,11 @@ class Product extends Model
 	];
 
 	public $belongsToMany = [
-        'orders' => \DevAlysonh\OrderSystem\Models\Order::class
+        'orders' => [\DevAlysonh\OrderSystem\Models\Order::class, 'table' => 'order_product']
     ];
 
-    public function getPriceAttribute($value)
+    public function getFormatedPrice()
     {
-        return number_format($value / 100, 2, ',', '.');
+        return number_format($this->price / 100, 2, ',', '.');
     }
 }

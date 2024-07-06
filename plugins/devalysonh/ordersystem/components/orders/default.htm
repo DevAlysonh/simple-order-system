@@ -1,3 +1,59 @@
-<p>This is the default markup for component Orders</p>
-
-<small>You can delete this file if you want</small>
+<div>
+	<div class="container d-flex mb-3 justify-content-end">
+	    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createOrderModal">
+	        Novo Pedido
+	    </button>
+	</div>
+	<div class="container justify-content-center w-50">
+		{% for order in __SELF__.orders %}
+			<div class="row bg-white mb-2" style="border-bottom: 1px solid #c7c7c7;">
+				<div class="col-lg-1 d-flex justify-content-start align-items-center">
+					<span class="fw-bold me-2 ms-3">
+						#  
+					</span>
+					<span class="fw-bold">
+						{{ order.id }}
+					</span>
+				</div>
+				<div class="col-lg-5 d-flex justify-content-start align-items-center">
+					<span class="fs-6 fw-bold me-2 ms-3">
+						Cliente:  
+					</span>
+					<span class="fw-bold">
+						{{ order.client.name }}
+					</span>
+				</div>
+				<div class="col-lg-4 d-flex justify-content-start align-items-center">
+					<span class="fs-6 fw-bold me-2 ms-3">
+						Status:  
+					</span>
+					<span class="badge text-uppercase text-bg-primary">
+						{{ order.status }}
+					</span>
+				</div>
+				<div class="col-lg-2 d-flex p-2 justify-content-end align-items-center">
+                	<button 
+                	    class="btn btn-sm btn-danger text-white" 
+                	    data-request="onDeleteOrder" 
+                	    data-request-data="id: {{ order.id }}" 
+                	    data-request-confirm="Tem certeza que deseja deletar este cliente?">
+                	    <i class="bi bi-trash"></i>
+                	</button>
+					<a
+					    id="btn-profile-{{ order.id }}"
+					    class="btn btn-sm ms-1 btn-success text-white"
+					    href="/orders/{{ order.id }}"
+					>
+    					<i class="bi bi-eye"></i>
+					</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="container d-flex justify-content-end">
+		<nav>
+			{{ pager(__SELF__.orders) }}
+		</nav>
+	</div>
+</div>
+{% partial 'site/modals/create-order-modal' clients=__SELF__.clients %}
