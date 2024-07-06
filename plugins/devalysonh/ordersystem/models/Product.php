@@ -14,7 +14,7 @@ class Product extends Model
     /**
      * @var string table name
      */
-    public $table = 'devalysonh_ordersystem_products';
+    public $table = 'products';
 
     /**
      * @var array rules for validation
@@ -26,13 +26,12 @@ class Product extends Model
 		'price'
 	];
 
+	public $belongsToMany = [
+        'orders' => \DevAlysonh\OrderSystem\Models\Order::class
+    ];
+
     public function getPriceAttribute($value)
     {
         return number_format($value / 100, 2, ',', '.');
-    }
-
-	public function orders()
-    {
-        return $this->belongsToMany(Order::class);
     }
 }

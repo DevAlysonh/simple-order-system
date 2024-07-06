@@ -14,7 +14,7 @@ class Client extends Model
     /**
      * @var string table name
      */
-    public $table = 'devalysonh_ordersystem_clients';
+    public $table = 'clients';
 
     /**
      * @var array rules for validation
@@ -26,8 +26,7 @@ class Client extends Model
 		'gender'
 	];
 
-	public function orders()
-	{
-		return $this->hasMany(Order::class);
-	}
+	public $hasMany = [
+        'orders' => \DevAlysonh\OrderSystem\Models\Order::class
+    ];
 }

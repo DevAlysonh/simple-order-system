@@ -1,4 +1,6 @@
-<?php namespace DevAlysonh\OrderSystem\Models;
+<?php 
+
+namespace DevAlysonh\OrderSystem\Models;
 
 use Model;
 
@@ -14,7 +16,7 @@ class Order extends Model
     /**
      * @var string table name
      */
-    public $table = 'devalysonh_ordersystem_orders';
+    public $table = 'orders';
 
     /**
      * @var array rules for validation
@@ -27,13 +29,11 @@ class Order extends Model
 		'paid_at'
 	];
 
-	public function products()
-    {
-        return $this->belongsToMany(Product::class);
-    }
+	public $belongsToMany = [
+        'products' => \DevAlysonh\OrderSystem\Models\Product::class
+    ];
 
-	public function client()
-	{
-		return $this->belongsTo(Client::class, 'client_id', 'id');
-	}
+	public $belongsTo = [
+        'client' => \DevAlysonh\OrderSystem\Models\Client::class
+    ];
 }
