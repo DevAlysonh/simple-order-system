@@ -6,21 +6,18 @@
 	    </button>
 	</div>
 	<div class="container justify-content-center w-50">
-		{% for client in __SELF__.clients %}
+		{% for product in __SELF__.products %}
 			<div class="row bg-white mb-2" style="border-bottom: 1px solid #c7c7c7;">
 				<div class="col-lg-5 d-flex justify-content-start align-items-center">
-					<span class="fs-6 fw-bold me-2 ms-3">
-						Nome:  
-					</span>
 					<span class="fs-5 fw-bold">
 						{{ product.name }}
 					</span>
 				</div>
 				<div class="col-lg-5 d-flex justify-content-start align-items-center">
 					<span class="fs-6 fw-bold me-2 ms-3">
-						Gênero:  
+						Valor:  
 					</span>
-					<span class="badge text-uppercase text-bg-primary">
+					<span class="fw-bold">
 						R$ {{ product.price }}
 					</span>
 				</div>
@@ -51,4 +48,4 @@
 		</nav>
 	</div>
 </div>
-{# {% partial 'site/modals/create-client-modal' %} #}
+{% partial 'site/modals/create-client-modal' %}

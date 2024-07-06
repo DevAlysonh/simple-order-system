@@ -46,6 +46,7 @@ class Plugin extends PluginBase
     {
         return [
             'DevAlysonh\OrderSystem\Components\Clients' => 'clients',
+            'DevAlysonh\OrderSystem\Components\Products' => 'products',
         ];
     }
 

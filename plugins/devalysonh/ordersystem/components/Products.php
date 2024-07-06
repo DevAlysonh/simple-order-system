@@ -1,6 +1,7 @@
 <?php namespace DevAlysonh\OrderSystem\Components;
 
 use Cms\Classes\ComponentBase;
+use DevAlysonh\OrderSystem\Models\Product;
 
 /**
  * Products Component
@@ -9,12 +10,20 @@ use Cms\Classes\ComponentBase;
  */
 class Products extends ComponentBase
 {
+	public $products;
+
     public function componentDetails()
     {
         return [
             'name' => 'Products Component',
             'description' => 'No description provided yet...'
         ];
+    }
+
+	public function onRun()
+    {   
+        $this->page['name'] = 'Clients';
+        $this->products = Product::paginate(5);
     }
 
     /**

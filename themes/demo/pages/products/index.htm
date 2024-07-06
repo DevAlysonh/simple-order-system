@@ -4,10 +4,12 @@ url = "/products"
 layout = "default"
 meta_title = "Products"
 
+[products]
+
 [resources]
 vars[activeNavLink] = 'products'
 ==
 
-<div class="conteiner d-flex justify-content-center align-items-center" style="min-height:  50vh;">
-	<h1>Pagina de produtos</h1>
+<div class="conteiner" style="min-height:  50vh;">
+	{% component 'products' %}
 </div>
