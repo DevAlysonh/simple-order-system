@@ -62,6 +62,21 @@ class OrderProfile extends ComponentBase
 		return redirect()->back();
 	}
 
+	public function onDeleteOrderProduct()
+	{
+		$order = Order::find(post('orderId'));
+		$product = Product::find(post('id'));
+
+		if (!$order || !$product) {
+			Flash::error('O produto que está tentando excluir é inválido');
+			return redirect()->back();
+		}
+
+		$order->products()->detach($product->id);
+		Flash::success('Produto removido do pedido');
+		return redirect()->back();
+	}
+
 	public function onSaveOrderProduct()
 	{
 		$product = Product::find(post('product_id'));
@@ -106,6 +121,7 @@ class OrderProfile extends ComponentBase
 
 		$products->map(function ($product) use ($productCollection) {
 			$productCollection->push([
+				'id' => $product->id,
 				'name' => $product->name,
 				'price' => number_format($product->price / 100, 2, ',', '.')
 			]);
