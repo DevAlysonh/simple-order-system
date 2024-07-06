@@ -1,0 +1,9 @@
+{% if clients is not empty %}
+    <ul class="list-group">
+        {% for client in clients %}
+            <li class="list-group-item">{{ client.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-muted">Nenhum cliente encontrado.</p>
+{% endif %}

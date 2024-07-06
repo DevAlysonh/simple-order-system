@@ -1,0 +1,38 @@
+<form data-request="onSave">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+	<label for="inputGender" class="form-label">Gênero</label>
+	<select id="inputGender" name="gender" class="form-select">
+		<option selected value="">Escolha um:</option>
+		<option value="nao_informado">Prefiro não informar</option>
+		<option value="masculino">Masculino</option>
+		<option value="feminino">Feminino</option>
+		<option value="outro">Outro...</option>
+	</select>
+
+	<div id="otherGenderField" class="mt-2" style="display: none;">
+        <label for="otherGender">Por favor, especifique:</label>
+        <input type="text" class="form-control" id="otherGender" name="other_gender">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const genderSelect = document.getElementById('inputGender');
+        const otherGenderField = document.getElementById('otherGenderField');
+        const otherGenderInput = document.getElementById('otherGender');
+
+        genderSelect.addEventListener('change', function() {
+            if (genderSelect.value === 'outro') {
+                otherGenderField.style.display = 'block';
+                otherGenderInput.setAttribute('required', 'required');
+            } else {
+                otherGenderField.style.display = 'none';
+                otherGenderInput.removeAttribute('required');
+                otherGenderInput.value = '';
+            }
+        });
+    });
+</script>

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Client
+
+# Model Form Field configuration
+form: $/devalysonh/ordersystem/models/client/fields.yaml
+
+# Model Class name
+modelClass: DevAlysonh\OrderSystem\Models\Client
+
+# Default redirect location
+defaultRedirect: devalysonh/ordersystem/client
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: devalysonh/ordersystem/client/update/:id
+    redirectClose: devalysonh/ordersystem/client
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: devalysonh/ordersystem/client
+    redirectClose: devalysonh/ordersystem/client
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

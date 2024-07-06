@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/devalysonh/ordersystem/models/product/fields.yaml
+
+# Model Class name
+modelClass: DevAlysonh\OrderSystem\Models\Product
+
+# Default redirect location
+defaultRedirect: devalysonh/ordersystem/product
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: devalysonh/ordersystem/product/update/:id
+    redirectClose: devalysonh/ordersystem/product
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: devalysonh/ordersystem/product
+    redirectClose: devalysonh/ordersystem/product
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

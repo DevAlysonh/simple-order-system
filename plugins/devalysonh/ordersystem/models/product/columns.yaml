@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Nome
+        required: true
+        searchable: true
+    price:
+        label: Preço
+        searchable: false
