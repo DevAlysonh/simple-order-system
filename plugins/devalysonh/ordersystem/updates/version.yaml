@@ -6,3 +6,16 @@
 1.0.2:
   - Add orders table and pivot
   - create_orders_table.php
+
+1.0.3:
+  - Fix tables
+  - create_new_clients_table.php
+
+1.0.4:
+  - Fix other tables
+  - create_new_orders_table.php
+  - create_new_products_table.php
+
+1.0.5:
+  - Drop unused tables
+  - drop_old_tables.php
