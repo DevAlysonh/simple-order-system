@@ -53,7 +53,7 @@ class OrderProfile extends ComponentBase
 	public function onCloseOrder()
 	{
 		$order = Order::find(post('id'));
-		$order->paid_at = Carbon::now()->locale('pt_BR')->format('d/m/Y H:i:s');
+		$order->paid_at = Carbon::now()->locale('pt_BR')->format('d/m/Y');
 		$order->status = 'pago';
 		$order->save();
 
