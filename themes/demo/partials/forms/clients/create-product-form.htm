@@ -1,0 +1,36 @@
+<form data-request="onSaveProduct">
+    <label for="name">Nome</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+
+	<label for="inputPrice" class="form-label">Valor</label>
+    <input type="text" class="form-control" id="price" name="price" value="0,00" required>
+
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>
+
+<script>
+function formatCurrency(value) {
+    value = value.replace(/\D/g, '');
+
+    value = (value / 100).toFixed(2);
+
+    value = value.replace('.', ',');
+
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+    return value;
+}
+
+document.getElementById('price').addEventListener('input', function (e) {
+    const start = this.selectionStart;
+    const end = this.selectionEnd;
+
+    const formattedValue = formatCurrency(this.value);
+
+    this.value = formattedValue;
+
+    let caretPosition = start + (formattedValue.length - this.value.length);
+
+    this.setSelectionRange(caretPosition, caretPosition);
+});
+</script>

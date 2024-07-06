@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use DevAlysonh\OrderSystem\Models\Product;
+use Flash;
 
 /**
  * Products Component
@@ -26,6 +27,20 @@ class Products extends ComponentBase
         $this->products = Product::paginate(5);
     }
 
+	public function onSaveProduct()
+	{
+		$data = post();
+		$price = $this->priceStringToIntTransform($data['price']);
+		
+		Product::create([
+			'name' => $data['name'],
+			'price' => $price
+		]);
+
+		Flash::success('Produto Cadastrado!');
+		return redirect()->back();
+	}
+
     /**
      * @link https://docs.octobercms.com/3.x/element/inspector-types.html
      */
@@ -33,4 +48,9 @@ class Products extends ComponentBase
     {
         return [];
     }
+
+	private function priceStringToIntTransform(string $str): int
+	{
+		return (int) preg_replace("/[^0-9]/", "", $str);
+	}
 }
