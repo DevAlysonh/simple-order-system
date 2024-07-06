@@ -25,4 +25,9 @@ class Product extends Model
 		'name',
 		'price'
 	];
+
+    public function getPriceAttribute($value)
+    {
+        return number_format($value / 100, 2, ',', '.');
+    }
 }
