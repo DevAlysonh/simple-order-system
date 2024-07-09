@@ -13,6 +13,9 @@ class Order extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
+	public const STATUS_PENDING = 'pendente';
+	public const STATUS_PAID = 'pago';
+
 	/**
      * @var string table name
      */
