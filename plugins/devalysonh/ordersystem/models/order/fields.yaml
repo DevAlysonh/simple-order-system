@@ -6,9 +6,19 @@ fields:
     id:
         label: ID
         disabled: true
-    client_id:
-        label: ClientId
     paid_at:
         label: PaidAt
+        disabled: true
     status:
         label: Status
+        type: dropdown
+        options:
+            pendente: Pendente
+            pago: Pago
+        default: pendente
+    client:
+        label: Cliente
+        type: relation
+    products:
+        label: produtos
+        type: relation

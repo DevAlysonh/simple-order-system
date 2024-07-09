@@ -15,3 +15,9 @@ columns:
     status:
         label: Status
         searchable: true
+    client:
+        label: Cliente
+        searchable: true
+    products:
+        label: produtos
+        searchable: true
