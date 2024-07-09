@@ -9,6 +9,8 @@
 
     <?= Form::open(['class' => 'd-flex flex-column h-100']) ?>
 
+		<input type="hidden" name="order_id" value="<?= $this->vars['formModel']->id ?>">
+
         <div class="flex-grow-1">
             <?= $this->formRender() ?>
         </div>
@@ -34,6 +36,19 @@
                     class="btn btn-default">
                     <?= __("Save & Close") ?>
                 </button>
+				<?php if ($this->vars['formModel']->status !== 'pago'): ?>
+					<button
+        				class="btn btn-success"
+        				data-request="onCloseOrder"
+        				data-request-message="<?= __("Faturando Pedido...") ?>"
+        				data-request-confirm="<?= __("Tem certeza que deseja faturar este pedido?") ?>"
+        				data-list-checked-trigger
+        				data-list-checked-request
+					>
+        					<i class="icon-check"></i>
+        					<?= __("Faturar Pedido") ?>
+    				</button>
+				<?php endif ?>
                 <button
                     type="button"
                     class="oc-icon-delete btn-icon danger pull-right"
